@@ -30,11 +30,51 @@ const registerUser = async (req, res) => {
 
 //login user
 
-const loginUser = async () => {
+const loginUser = async (req, res) => {
     try {
+        const user = await User.findOne({
+            email: req.body.email
+        });
+        if (!user) {
+            return res.status(401).json({
+                message: 'you have not registered',
+                user
+            })
+        }
+        const hashedPassword = CryptoJS.AES.decrypt(
+            user.password,
+            process.env.PASS
+        );
+        const originalPassword = hashedPassword.toString(
+            CryptoJS.enc.Utf8
+        );
+
+        if (originalPassword !== req.body.password) {
+            return res.status(403).json({
+                message: 'Invalid password '
+            })
+        }
+        const { password, ...info } = user._doc;
+
+        const accessToken = jwt.sign(
+            {
+                id: user._id, role: user.role
+            },
+            process.env.JWT_SEC,
+            {
+                expiresIn: "10d"
+            }
+        );
+        res.status(200).json({
+            ...info,
+            accessToken
+        });
 
     } catch (error) {
-
+        console.log(error);
+        res.status(500).json({
+            message: 'you have not registered',
+        })
     }
 }
 
