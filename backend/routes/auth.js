@@ -8,7 +8,7 @@ router.post("/login", loginUser)
 
 //login router
 router.post("/register", registerUser)
-
+ 
 
 export{router};
 

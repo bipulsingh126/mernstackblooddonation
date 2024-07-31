@@ -1,6 +1,6 @@
 import express from 'express';
-import { createDonor, deleteDonor, getAllDonors, getDonorStats, getOneDonor, updateDonor } from '../controllers/donor';
-import { verifyTokenAndAuthorization } from '../middlewares/verifyToken';
+import { createDonor, deleteDonor, getAllDonors, getDonorStats, getOneDonor, updateDonor } from '../controllers/donor.js';
+import { verifyTokenAndAuthorization } from '../middlewares/verifyToken.js';
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createProspect, deleteProspect, getAllProspect, getOneProspect, updateProspect } from '../controllers/prospect';
+import { createProspect, deleteProspect, getAllProspect, getOneProspect, updateProspect } from '../controllers/prospect.js';
 
 const router = express.Router();
 
