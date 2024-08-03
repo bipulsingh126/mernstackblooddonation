@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 const Footer = () => {
   return (
     <div className=" bg-gray-100 px-[200px] h-[60vh] mt-[50px] ">
@@ -13,7 +15,9 @@ const Footer = () => {
             <li className="hover:underline ">About Us</li>
             <li className="hover:underline ">Donate</li>
             <li className="hover:underline ">Contact</li>
+            <Link to='/login'>
             <li className="hover:underline ">Admin</li>
+            </Link>
           </ul>
         </div>
         <div className="w-full md:w-1/3 ">

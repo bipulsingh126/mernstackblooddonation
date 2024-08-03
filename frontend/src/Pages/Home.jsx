@@ -18,7 +18,6 @@ const Home = () => {
       <Element name="contact">
         <Contact />
       </Element>
-
       <Footer />
     </div>
   );
