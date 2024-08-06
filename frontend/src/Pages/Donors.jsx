@@ -1,6 +1,6 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import {FaTrash} from 'react-icons/fa';
+import { FaTrash } from "react-icons/fa";
 const Donors = () => {
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -14,10 +14,10 @@ const Donors = () => {
       field: "edit",
       headerName: "Edit",
       width: 150,
-      renderCell: () => {
+      renderCell: (params) => {
         return (
           <>
-            <Link to={`/donor/123`}>
+            <Link to={`/admin/donor/123`}>
               <button className="bg-gray-400 text-white cursor-pointer w-[78px] ">
                 Edit
               </button>
@@ -138,7 +138,7 @@ const Donors = () => {
     <div className="w-[70vw] ">
       <div className="flex items-center justify-between m-[30px] ">
         <h1 className="m-[20px] text-[20px] font-semibold ">All Donors</h1>
-        <Link to="/newdonor">
+        <Link to="/admin/newdonor">
           <button className="bg-[#1e1e1e] text-white p-[10px] cursor-pointer ">
             New Donor
           </button>

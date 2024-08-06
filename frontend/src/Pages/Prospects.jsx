@@ -1,5 +1,4 @@
-
-import {DataGrid} from '@mui/x-data-grid';
+import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 const Prospects = () => {
@@ -18,7 +17,7 @@ const Prospects = () => {
       renderCell: () => {
         return (
           <>
-            <Link to={`/prospect/123`}>
+            <Link to={`/admin/prospect/123`}>
               <button className="bg-gray-400 text-white cursor-pointer m-2 w-[78px] ">
                 Approve
               </button>
@@ -137,19 +136,15 @@ const Prospects = () => {
   ];
   return (
     <div className="w-[70vw] ">
-    <div className="flex items-center justify-between m-[30px] ">
-      <h1 className="m-[20px] text-[20px] ">All Prospects</h1>
-      <button className="bg-[#1e1e1e] text-white p-[10px] cursor-pointer ">
-        New Donor
-      </button>
-    </div>
+      <div className="flex items-center justify-between m-[30px] ">
+        <h1 className="m-[20px] text-[20px] ">All Prospects</h1>
+      </div>
 
-    <div className="m-[30px+] ">
-      <DataGrid rows={rows} columns={columns} checkboxSelection />
+      <div className="m-[30px+] ">
+        <DataGrid rows={rows} columns={columns} checkboxSelection />
+      </div>
     </div>
-  </div>
-);
+  );
 };
- 
 
-export default Prospects
+export default Prospects;

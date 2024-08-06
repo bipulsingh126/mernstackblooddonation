@@ -7,13 +7,16 @@ import Login from "./Pages/Login.jsx";
 import Donors from "./Pages/Donors.jsx";
 import Prospects from "./Pages/Prospects.jsx";
 import Menu from "./Components/Menu.jsx";
+import Prospect from "./Pages/Prospect.jsx";
+import NewDonor from "./Pages/NewDonor.jsx";
+import Donor from "./Pages/Donor.jsx";
 
 function App() {
   const Layout = () => {
     return (
       <div className="flex">
         <div>
-          <Menu/>
+          <Menu />
         </div>
         <div>
           <Outlet />
@@ -48,6 +51,18 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/admin/prospect/:id",
+      element: <Prospect />,
+    },
+    {
+      path: "/admin/newdonor",
+      element: <NewDonor />,
+    },
+    {
+      path: "/admin/donor/:id",
+      element: <Donor />,
     },
   ]);
 
