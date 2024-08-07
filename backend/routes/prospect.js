@@ -9,7 +9,7 @@ router.post('/', createProspect);
 router.get('/', getAllProspect);
 router.put('/:id', updateProspect);
 router.delete('/:id', deleteProspect);
-router.post('/find/:id', getOneProspect);
+router.get('/find/:id', getOneProspect);
 
 
 

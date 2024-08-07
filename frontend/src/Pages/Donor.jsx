@@ -1,6 +1,7 @@
-
+import { useLocation } from "react-router-dom";
 
 const Donor = () => {
+  
   return (
     <div className="flex items-center justify-center min-h-screen ">
     <div className="m-[20px] p-[20px] h-[80vh] w-[450px] shadow-lg ">
