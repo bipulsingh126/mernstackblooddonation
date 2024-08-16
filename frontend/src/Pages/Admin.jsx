@@ -1,8 +1,29 @@
 import { Gauge } from "@mui/x-charts/Gauge";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { PieChart } from "@mui/x-charts/PieChart";
+import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
+import { publicRequest } from "../requestMethods.js";
 const Admin = () => {
+  const [bloodGroupData, setBloodGroupData] = useState([]);
+
+  useEffect(() => {
+    const getBloodGroupStates = async () => {
+      try {
+        const res = await publicRequest.get("/donors/stats");
+        const transfromData = res.data.map((item, index) => ({
+          id: index,
+          value: item.count,
+          label: `Blood Group ${item._id}`,
+        }));
+        setBloodGroupData(transfromData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBloodGroupStates();
+  }, []);
+
   return (
     <div className="flex justify-between h-[100vh]">
       <div className="flex flex-col">
@@ -48,7 +69,7 @@ const Admin = () => {
           <FaUser />
           <span className="ml-[10px]  font-semibold">LogOut</span>
         </div>
-        <div className=  "flex flex-col items-center justify-center   m-[10px]   ">
+        <div className="flex flex-col items-center justify-center   m-[10px]   ">
           <h3 className="font-bold">Recent Donors</h3>
           <ul>
             <li>1.Aditya Singh </li>
@@ -60,12 +81,7 @@ const Admin = () => {
         <PieChart
           series={[
             {
-              data: [
-                { id: 0, value: 10, label: "Blood Group A" },
-                { id: 1, value: 15, label: "Blood Group O+" },
-                { id: 2, value: 20, label: "Blood Group AB" },
-                { id: 3, value: 25, label: "Blood Group O-" },
-              ],
+              data:bloodGroupData,
               innerRadius: 50,
               outerRadius: 70,
               paddingAngle: 7,
